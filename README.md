@@ -1,7 +1,31 @@
 
 # cbvlibrary
 
-Created using Django.
+This is the code repository for tutorial [Class Based Views in Django](https://medium.com/all-about-django/class-based-views-in-django-89108c1f51fb)
+
+It uses Class-Based Views to create CRUD interfaces for a `Book` model.
+
+## Snaps
+
+* ListView
+
+![listview](.snaps/listview.png "ListView for Books")
+
+* CreateView
+
+![createview](.snaps/createview.png "CreateView of Book")
+
+* DetailView
+
+![detailview](.snaps/detailview.png "DetailView of Book")
+
+* UpdateView
+
+![updateview](.snaps/updateview.png "UpdateView of Book")
+
+* DeleteView
+
+![deleteview](.snaps/deleteview.png "DeleteView of Book")
 
 ## Setup Instructions
 

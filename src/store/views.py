@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
 
 from .models import Book
 
@@ -28,3 +30,11 @@ class BookListView(ListView):
             books = paginator.page(paginator.num_pages)
         context['books'] = books
         return context
+
+
+@method_decorator(login_required, name='dispatch')
+class BookDetailView(DetailView):
+
+    model = Book
+    template_name = 'book/detail.html'
+    context_object_name = 'book'

@@ -1,0 +1,20 @@
+{% extends "__base.html" %}
+{% block container %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Book Details #{{book.id}}</h5>
+    </div>
+    <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">Book Name</dt>
+      <dd class="col-sm-9">{{ book.name }}</dd>
+      <dt class="col-sm-3">ISBN</dt>
+      <dd class="col-sm-9">{{ book.isbn_number }}</dd>
+    </dl>
+
+    </div>
+</div>
+
+{% endblock %}

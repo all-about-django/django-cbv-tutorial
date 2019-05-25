@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import CreateView
+from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -60,4 +61,11 @@ class BookCreateView(CreateView):
     model = Book
     template_name = 'book/create.html'
     fields = ('name', 'isbn_number', )
+    success_url = reverse_lazy('book-list')
+
+
+@method_decorator(login_required, name='dispatch')
+class BookDeleteView(DeleteView):
+    model = Book
+    template_name = 'book/delete.html'
     success_url = reverse_lazy('book-list')

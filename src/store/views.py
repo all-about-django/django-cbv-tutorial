@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -51,3 +53,11 @@ class BookUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('book-detail', kwargs={'pk': self.object.id})
+
+
+@method_decorator(login_required, name='dispatch')
+class BookCreateView(CreateView):
+    model = Book
+    template_name = 'book/create.html'
+    fields = ('name', 'isbn_number', )
+    success_url = reverse_lazy('book-list')

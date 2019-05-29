@@ -8,6 +8,8 @@
                 <th scope="col">Id</th>
                 <th scope="col">ISBN</th>
                 <th scope="col">ISBN</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +18,10 @@
                 <td><a href="{% url 'book-detail' book.id %}">{{book.id}}</a></td>
                 <td>{{book.name}}</td>
                 <td>{{book.isbn_number}}</td>
+                <td>
+                    <a href="{% url 'book-update' book.id %}" class="btn btn-info">Update</a>
+                </td>
+                <td><a href="{% url 'book-delete' book.id %}" class="btn btn-danger">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
